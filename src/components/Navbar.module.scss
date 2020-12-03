@@ -1,0 +1,23 @@
+@import "../../styles/vars_module.scss";
+
+.navContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 30px;
+  font-size: 16px;
+  color: #828282;
+  position: fixed;
+  width: 100%;
+}
+
+.left {
+  grid-template: 1;
+  justify-self: start;
+  font-weight: 600;
+}
+
+.right {
+  grid-template: 2;
+  justify-self: end;
+  font-weight: 400;
+}

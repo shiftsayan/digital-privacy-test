@@ -1,0 +1,19 @@
+.arrow {
+  border: solid rgb(190, 190, 190);
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 20px;
+  position: fixed;
+  left: 50px;
+  top: 50vh;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  opacity: 0.3;
+}
+
+.left {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(135deg);
+}
