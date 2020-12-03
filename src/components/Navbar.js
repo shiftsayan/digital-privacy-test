@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <nav className={styles.navContainer}>
       <Link href="/">
-        <a className={styles.left}>The Ads Test</a>
+        <a className={styles.left}>Digital Privacy Test</a>
       </Link>
 
       {/* <div className={styles.right}>About this Project</div> */}

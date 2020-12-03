@@ -1,13 +1,15 @@
 import styles from "./index.module.scss";
 import Link from "next/link";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Home() {
   return (
     <div className={styles.landingContainer}>
       <div className={styles.left}>
-        <h1>The Ads Test</h1>
-        <p>How well do you know the websites that know you so well?</p>
+        <h1>Digital Privacy Test</h1>
+        <h5 className={styles.secondary}>
+          A survey about your relationship with the web.
+        </h5>
         <Link href="one">
           <button>Take the Test</button>
         </Link>

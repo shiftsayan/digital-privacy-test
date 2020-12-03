@@ -22,7 +22,7 @@ export default function Thanks() {
     <div className={styles.centerAlign}>
       <div>
         <h2 className={styles.title}>Thanks for taking part in this survey!</h2>
-        <h5>A data visualization will out soon.</h5>
+        <h5>A data visualization will be out soon.</h5>
       </div>
       <Footer level={13} />
     </div>
