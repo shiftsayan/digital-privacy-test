@@ -44,9 +44,9 @@ export default function Eleven() {
     <div className={styles.centerAlign}>
       <div>
         <TextInput
-          question="What percentage of Google’s revenue comes from ads? Write a number between 0 and 100."
+          question="From 0 to 100, what percentage of Google’s revenue comes from ads?"
           value={input}
-          onInput={e => setInput(e.target.value)}
+          onInput={(e) => setInput(e.target.value)}
           type="number"
         />
         {arrows}
