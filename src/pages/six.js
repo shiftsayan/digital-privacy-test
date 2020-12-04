@@ -14,18 +14,28 @@ export default function Six() {
           If you didn’t already know, Google personalizes ads.
         </h2>
         <p>
-          Click the image to view your Google Ad Settings, and take a few minutes to 
+          Click the image to view your Google Ad Settings, and take a few
+          minutes to
           <br></br>
-          explore the “How your ads are personalized” section and come back here.
+          explore the “How your ads are personalized” section and come back
+          here.
+          <br></br>
+          Make sure to keep the Ad Settings tab open for future questions.
         </p>
-        <a href="https://adssettings.google.com" target="_blank" onClick={() => setClicked(true)}>
+        <a
+          href="https://adssettings.google.com"
+          target="_blank"
+          onClick={() => setClicked(true)}
+        >
           <img src="/ad-settings.png"></img>
         </a>
-        {clicked && <Link href="seven">
-          <a>
-            <RightArrow />
-          </a>
-        </Link>}
+        {clicked && (
+          <Link href="seven">
+            <a>
+              <RightArrow />
+            </a>
+          </Link>
+        )}
         <Link href="five">
           <a>
             <LeftArrow></LeftArrow>

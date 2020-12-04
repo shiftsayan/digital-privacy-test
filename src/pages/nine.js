@@ -10,33 +10,53 @@ import Footer from "../components/Footer";
 function storeInputInContext(input) {
   const context = useContext(Context);
   context.nine = input;
+  context.ten = input;
 }
 
-export default function Nine() {
-  const [option, setOption] = useState(-1);
+export default function NineAndTen() {
+  const [option1, setOption1] = useState(-1);
+  const [option2, setOption2] = useState(-1);
   let arrows;
-  if (option == -1) {
-    arrows = (
-      <Link href="eight" onClick={storeInputInContext(option)}>
-        <a>
-          <LeftArrow></LeftArrow>
-        </a>
-      </Link>
-    );
-  } else {
+  if (option1 != -1 && option2 != -1) {
     arrows = (
       <>
-        <Link href="ten" onClick={storeInputInContext(option)}>
+        <Link
+          href="eleven"
+          onClick={() => {
+            storeInputInContext(option1);
+            storeInputInContext(option2);
+          }}
+        >
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link href="eight" onClick={storeInputInContext(option)}>
+        <Link
+          href="seven"
+          onClick={() => {
+            storeInputInContext(option1);
+            storeInputInContext(option2);
+          }}
+        >
           <a>
             <LeftArrow></LeftArrow>
           </a>
         </Link>
       </>
+    );
+  } else {
+    arrows = (
+      <Link
+        href="seven"
+        onClick={() => {
+          storeInputInContext(option1);
+          storeInputInContext(option2);
+        }}
+      >
+        <a>
+          <LeftArrow></LeftArrow>
+        </a>
+      </Link>
     );
   }
 
@@ -50,14 +70,27 @@ export default function Nine() {
             { value: 2, text: "Disagree" },
             { value: 3, text: "Neutral" },
             { value: 4, text: "Agree" },
+            { value: 5, text: "Strongly Agree" },
+            { value: 6, text: "None Shown" }
+          ]}
+          value={option1}
+          onClick={response => setOption1(response)}
+        />
+        <LikertScale
+          question="I believe Google collects data about me from non-Google websites."
+          responses={[
+            { value: 1, text: "Strongly Disagree" },
+            { value: 2, text: "Disagree" },
+            { value: 3, text: "Neutral" },
+            { value: 4, text: "Agree" },
             { value: 5, text: "Strongly Agree" }
           ]}
-          value={option}
-          onClick={response => setOption(response)}
+          value={option2}
+          onClick={response => setOption2(response)}
         />
         {arrows}
       </div>
-      <Footer level={9} />
+      <Footer level={10} />
     </div>
   );
 }

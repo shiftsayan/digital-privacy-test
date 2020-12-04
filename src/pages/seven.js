@@ -1,5 +1,6 @@
 import styles from "./index.module.scss";
 import YesNo from "../components/YesNo";
+import LikertScale from "../components/LikertScale";
 import Link from "next/link";
 import { Context } from "../components/store";
 import { useContext, useState } from "react";
@@ -10,33 +11,53 @@ import Footer from "../components/Footer";
 function storeInputInContext(input) {
   const context = useContext(Context);
   context.seven = input;
+  context.eight = input;
 }
 
-export default function Seven() {
+export default function SevenAndEight() {
   const [yesno, setYesNo] = useState(0);
+  const [option, setOption] = useState(-1);
   let arrows;
-  if (yesno == 0) {
-    arrows = (
-      <Link href="six" onClick={storeInputInContext(yesno)}>
-        <a>
-          <LeftArrow></LeftArrow>
-        </a>
-      </Link>
-    );
-  } else {
+  if (yesno != 0 && option != -1) {
     arrows = (
       <>
-        <Link href="eight" onClick={storeInputInContext(yesno)}>
+        <Link
+          href="nine"
+          onClick={() => {
+            storeInputInContext(yesno);
+            storeInputInContext(option);
+          }}
+        >
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link href="six" onClick={storeInputInContext(yesno)}>
+        <Link
+          href="six"
+          onClick={() => {
+            storeInputInContext(yesno);
+            storeInputInContext(option);
+          }}
+        >
           <a>
             <LeftArrow></LeftArrow>
           </a>
         </Link>
       </>
+    );
+  } else {
+    arrows = (
+      <Link
+        href="six"
+        onClick={() => {
+          storeInputInContext(yesno);
+          storeInputInContext(option);
+        }}
+      >
+        <a>
+          <LeftArrow></LeftArrow>
+        </a>
+      </Link>
     );
   }
 
@@ -48,9 +69,21 @@ export default function Seven() {
           value={yesno}
           onClick={response => setYesNo(response)}
         />
+        <LikertScale
+          question="I believe Google ad personalization should be, by default, turned on."
+          responses={[
+            { value: 1, text: "Strongly Disagree" },
+            { value: 2, text: "Disagree" },
+            { value: 3, text: "Neutral" },
+            { value: 4, text: "Agree" },
+            { value: 5, text: "Strongly Agree" }
+          ]}
+          value={option}
+          onClick={response => setOption(response)}
+        />
         {arrows}
       </div>
-      <Footer level={7} />
+      <Footer level={8} />
     </div>
   );
 }

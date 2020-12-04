@@ -10,33 +10,53 @@ import Footer from "../components/Footer";
 function storeInputInContext(input) {
   const context = useContext(Context);
   context.three = input;
+  context.four = input;
 }
 
-export default function Three() {
-  const [option, setOption] = useState(-1);
+export default function ThreeAndFour() {
+  const [option1, setOption1] = useState(-1);
+  const [option2, setOption2] = useState(-1);
   let arrows;
-  if (option == -1) {
-    arrows = (
-      <Link href="two" onClick={storeInputInContext(option)}>
-        <a>
-          <LeftArrow></LeftArrow>
-        </a>
-      </Link>
-    );
-  } else {
+  if (option1 != -1 && option2 != -1) {
     arrows = (
       <>
-        <Link href="four" onClick={storeInputInContext(option)}>
+        <Link
+          href="five"
+          onClick={() => {
+            storeInputInContext(option1);
+            storeInputInContext(option2);
+          }}
+        >
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link href="two" onClick={storeInputInContext(option)}>
+        <Link
+          href="one"
+          onClick={() => {
+            storeInputInContext(option1);
+            storeInputInContext(option2);
+          }}
+        >
           <a>
             <LeftArrow></LeftArrow>
           </a>
         </Link>
       </>
+    );
+  } else {
+    arrows = (
+      <Link
+        href="one"
+        onClick={() => {
+          storeInputInContext(option1);
+          storeInputInContext(option2);
+        }}
+      >
+        <a>
+          <LeftArrow></LeftArrow>
+        </a>
+      </Link>
     );
   }
 
@@ -52,12 +72,24 @@ export default function Three() {
             { value: 4, text: "Agree" },
             { value: 5, text: "Strongly Agree" }
           ]}
-          value={option}
-          onClick={response => setOption(response)}
+          value={option1}
+          onClick={response => setOption1(response)}
+        />
+        <LikertScale
+          question="I feel Google is collecting too much information about people online."
+          responses={[
+            { value: 1, text: "Strongly Disagree" },
+            { value: 2, text: "Disagree" },
+            { value: 3, text: "Neutral" },
+            { value: 4, text: "Agree" },
+            { value: 5, text: "Strongly Agree" }
+          ]}
+          value={option2}
+          onClick={response => setOption2(response)}
         />
         {arrows}
       </div>
-      <Footer level={3} />
+      <Footer level={4} />
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function Five() {
   let arrows;
   if (yesno == 0) {
     arrows = (
-      <Link href="four" onClick={storeInputInContext(yesno)}>
+      <Link href="three" onClick={storeInputInContext(yesno)}>
         <a>
           <LeftArrow></LeftArrow>
         </a>
@@ -31,7 +31,7 @@ export default function Five() {
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link href="four" onClick={storeInputInContext(yesno)}>
+        <Link href="three" onClick={storeInputInContext(yesno)}>
           <a>
             <LeftArrow></LeftArrow>
           </a>
