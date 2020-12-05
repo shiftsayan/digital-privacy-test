@@ -67,8 +67,9 @@ export default function SevenAndEight() {
         <YesNo
           question="Was ad personalization turned on for your account? You can go back to your Ad Settings to check."
           value={yesno}
-          onClick={response => setYesNo(response)}
+          onClick={(response) => setYesNo(response)}
         />
+        <div className={styles.spacer}></div>
         <LikertScale
           question="I believe Google ad personalization should be, by default, turned on."
           responses={[
@@ -76,10 +77,10 @@ export default function SevenAndEight() {
             { value: 2, text: "Disagree" },
             { value: 3, text: "Neutral" },
             { value: 4, text: "Agree" },
-            { value: 5, text: "Strongly Agree" }
+            { value: 5, text: "Strongly Agree" },
           ]}
           value={option}
-          onClick={response => setOption(response)}
+          onClick={(response) => setOption(response)}
         />
         {arrows}
       </div>

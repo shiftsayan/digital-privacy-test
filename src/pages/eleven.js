@@ -67,9 +67,10 @@ export default function ElevenAndTwelve() {
         <TextInput
           question="From 0 to 100, what percentage of Google’s revenue comes from ads?"
           value={input}
-          onInput={e => setInput(e.target.value)}
+          onInput={(e) => setInput(e.target.value)}
           type="number"
         />
+        <div className={styles.spacer}></div>
         <LikertScale
           question="I believe Google sells my data to other companies."
           responses={[
@@ -77,10 +78,10 @@ export default function ElevenAndTwelve() {
             { value: 2, text: "Disagree" },
             { value: 3, text: "Neutral" },
             { value: 4, text: "Agree" },
-            { value: 5, text: "Strongly Agree" }
+            { value: 5, text: "Strongly Agree" },
           ]}
           value={option}
-          onClick={response => setOption(response)}
+          onClick={(response) => setOption(response)}
         />
         {arrows}
       </div>

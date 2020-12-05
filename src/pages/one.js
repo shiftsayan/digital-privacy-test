@@ -70,11 +70,12 @@ export default function OneAndTwo() {
             { value: 2, text: "Disagree" },
             { value: 3, text: "Neutral" },
             { value: 4, text: "Agree" },
-            { value: 5, text: "Strongly Agree" }
+            { value: 5, text: "Strongly Agree" },
           ]}
           value={option1}
-          onClick={response => setOption1(response)}
+          onClick={(response) => setOption1(response)}
         />
+        <div className={styles.spacer}></div>
         <LikertScale
           question="I trust Google as a company."
           responses={[
@@ -82,10 +83,10 @@ export default function OneAndTwo() {
             { value: 2, text: "Disagree" },
             { value: 3, text: "Neutral" },
             { value: 4, text: "Agree" },
-            { value: 5, text: "Strongly Agree" }
+            { value: 5, text: "Strongly Agree" },
           ]}
           value={option2}
-          onClick={response => setOption2(response)}
+          onClick={(response) => setOption2(response)}
         />
         {arrows}
       </div>
