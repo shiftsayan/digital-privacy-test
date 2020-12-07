@@ -18,7 +18,7 @@ export default function ElevenAndTwelve() {
   const [input, setInput] = useState("");
   const [option, setOption] = useState(-1);
   let arrows;
-  if (input.match(/^[1-9]$|^[1-9][0-9]$|^(100)$/) && option != -1) {
+  if (input.match(/^[1-9]$|^[1-9][0-9]$|^(100)$|^(0)$/) && option != -1) {
     arrows = (
       <>
         <Link
