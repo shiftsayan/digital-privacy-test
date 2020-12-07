@@ -8,7 +8,7 @@ export default function Home() {
       <div className={styles.left}>
         <h1>Digital Privacy Test</h1>
         <h5 className={styles.secondary}>
-          A survey about your relationship with the web.
+          A five minute survey about your relationship with the web.
         </h5>
         <Link href="zero">
           <button>Take the Test</button>
