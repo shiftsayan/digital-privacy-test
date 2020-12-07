@@ -12,9 +12,9 @@ function Meta() {
       <meta
         key="description"
         name="description"
-        content="FATE Semester Project '21."
+        content="FATE F20 Semester Project."
       />
-      <title key="title">The Ads Test</title>
+      <title key="title">Digital Privacy Test</title>
       {/* <link
         key="favicon"
         rel="icon"
