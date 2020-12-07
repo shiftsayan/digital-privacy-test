@@ -29,7 +29,7 @@ export default function OneAndTwo() {
           </a>
         </Link>
         <Link
-          href="/"
+          href="/zero"
           onClick={storeInputInContext(option1, option2)}
         >
           <a>
@@ -41,7 +41,7 @@ export default function OneAndTwo() {
   } else {
     arrows = (
       <Link
-        href="/"
+        href="/zero"
         onClick={storeInputInContext(option1, option2)}
       >
         <a>

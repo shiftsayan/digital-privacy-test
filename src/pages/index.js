@@ -10,7 +10,7 @@ export default function Home() {
         <h5 className={styles.secondary}>
           A survey about your relationship with the web.
         </h5>
-        <Link href="one">
+        <Link href="zero">
           <button>Take the Test</button>
         </Link>
       </div>
