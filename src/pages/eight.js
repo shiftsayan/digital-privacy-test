@@ -8,10 +8,10 @@ import RightArrow from "../components/RightArrow";
 import LeftArrow from "../components/LeftArrow";
 import Footer from "../components/Footer";
 
-function storeInputInContext(input) {
+function storeInputInContext(input1, input2) {
   const context = useContext(Context);
-  context.eleven = input;
-  context.twelve = input;
+  context.eleven = input1;
+  context.twelve = input2;
 }
 
 export default function ElevenAndTwelve() {
@@ -23,10 +23,7 @@ export default function ElevenAndTwelve() {
       <>
         <Link
           href="thanks"
-          onClick={() => {
-            storeInputInContext(input);
-            storeInputInContext(yesno);
-          }}
+          onClick={storeInputInContext(input, option)}
         >
           <a>
             <RightArrow></RightArrow>
@@ -34,10 +31,7 @@ export default function ElevenAndTwelve() {
         </Link>
         <Link
           href="nine"
-          onClick={() => {
-            storeInputInContext(input);
-            storeInputInContext(yesno);
-          }}
+          onClick={storeInputInContext(input, option)}
         >
           <a>
             <LeftArrow></LeftArrow>
@@ -49,10 +43,7 @@ export default function ElevenAndTwelve() {
     arrows = (
       <Link
         href="nine"
-        onClick={() => {
-          storeInputInContext(input);
-          storeInputInContext(yesno);
-        }}
+        onClick={storeInputInContext(input, option)}
       >
         <a>
           <LeftArrow></LeftArrow>
@@ -85,7 +76,7 @@ export default function ElevenAndTwelve() {
         />
         {arrows}
       </div>
-      <Footer level={12} />
+      <Footer level={8} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import LikertScale from "../components/LikertScale";
+import YesNo from "../components/YesNo";
 import Link from "next/link";
 import { Context } from "../components/store";
 import { useContext, useState } from "react";
@@ -9,88 +9,48 @@ import Footer from "../components/Footer";
 
 function storeInputInContext(input) {
   const context = useContext(Context);
-  context.three = input;
-  context.four = input;
+  context.five = input;
 }
 
-export default function ThreeAndFour() {
-  const [option1, setOption1] = useState(-1);
-  const [option2, setOption2] = useState(-1);
+export default function Five() {
+  const [yesno, setYesNo] = useState(0);
   let arrows;
-  if (option1 != -1 && option2 != -1) {
+  if (yesno == 0) {
+    arrows = (
+      <Link href="two" onClick={storeInputInContext(yesno)}>
+        <a>
+          <LeftArrow></LeftArrow>
+        </a>
+      </Link>
+    );
+  } else {
     arrows = (
       <>
-        <Link
-          href="five"
-          onClick={() => {
-            storeInputInContext(option1);
-            storeInputInContext(option2);
-          }}
-        >
+        <Link href="four" onClick={storeInputInContext(yesno)}>
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link
-          href="one"
-          onClick={() => {
-            storeInputInContext(option1);
-            storeInputInContext(option2);
-          }}
-        >
+        <Link href="two" onClick={storeInputInContext(yesno)}>
           <a>
             <LeftArrow></LeftArrow>
           </a>
         </Link>
       </>
     );
-  } else {
-    arrows = (
-      <Link
-        href="one"
-        onClick={() => {
-          storeInputInContext(option1);
-          storeInputInContext(option2);
-        }}
-      >
-        <a>
-          <LeftArrow></LeftArrow>
-        </a>
-      </Link>
-    );
   }
 
   return (
     <div className={styles.centerAlign}>
       <div>
-        <LikertScale
-          question="I trust Google to keep my personal data safe."
-          responses={[
-            { value: 1, text: "Strongly Disagree" },
-            { value: 2, text: "Disagree" },
-            { value: 3, text: "Neutral" },
-            { value: 4, text: "Agree" },
-            { value: 5, text: "Strongly Agree" },
-          ]}
-          value={option1}
-          onClick={(response) => setOption1(response)}
-        />
-        <div className={styles.spacer}></div>
-        <LikertScale
-          question="I feel Google is collecting too much information about people online."
-          responses={[
-            { value: 1, text: "Strongly Disagree" },
-            { value: 2, text: "Disagree" },
-            { value: 3, text: "Neutral" },
-            { value: 4, text: "Agree" },
-            { value: 5, text: "Strongly Agree" },
-          ]}
-          value={option2}
-          onClick={(response) => setOption2(response)}
+        <YesNo
+          question="I am aware that Google personalizes ads based on data collected about my Google account."
+          value={yesno}
+          onClick={response => setYesNo(response)}
         />
         {arrows}
       </div>
-      <Footer level={4} />
+      <Footer level={3} />
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import styles from "./index.module.scss";
-import YesNo from "../components/YesNo";
 import LikertScale from "../components/LikertScale";
 import Link from "next/link";
 import { Context } from "../components/store";
@@ -10,81 +9,55 @@ import Footer from "../components/Footer";
 
 function storeInputInContext(input) {
   const context = useContext(Context);
-  context.seven = input;
-  context.eight = input;
+  context.ten = input;
 }
 
-export default function SevenAndEight() {
-  const [yesno, setYesNo] = useState(0);
+export default function Ten() {
   const [option, setOption] = useState(-1);
   let arrows;
-  if (yesno != 0 && option != -1) {
+  if (option == -1) {
+    arrows = (
+      <Link href="six" onClick={storeInputInContext(option)}>
+        <a>
+          <LeftArrow></LeftArrow>
+        </a>
+      </Link>
+    );
+  } else {
     arrows = (
       <>
-        <Link
-          href="nine"
-          onClick={() => {
-            storeInputInContext(yesno);
-            storeInputInContext(option);
-          }}
-        >
+        <Link href="eight" onClick={storeInputInContext(option)}>
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link
-          href="six"
-          onClick={() => {
-            storeInputInContext(yesno);
-            storeInputInContext(option);
-          }}
-        >
+        <Link href="six" onClick={storeInputInContext(option)}>
           <a>
             <LeftArrow></LeftArrow>
           </a>
         </Link>
       </>
     );
-  } else {
-    arrows = (
-      <Link
-        href="six"
-        onClick={() => {
-          storeInputInContext(yesno);
-          storeInputInContext(option);
-        }}
-      >
-        <a>
-          <LeftArrow></LeftArrow>
-        </a>
-      </Link>
-    );
   }
 
   return (
     <div className={styles.centerAlign}>
       <div>
-        <YesNo
-          question="Was ad personalization turned on for your account? You can go back to your Ad Settings to check."
-          value={yesno}
-          onClick={(response) => setYesNo(response)}
-        />
-        <div className={styles.spacer}></div>
         <LikertScale
-          question="I believe Google ad personalization should be, by default, turned on."
+          question="I believe Google collects data about me from non-Google websites."
           responses={[
             { value: 1, text: "Strongly Disagree" },
             { value: 2, text: "Disagree" },
             { value: 3, text: "Neutral" },
             { value: 4, text: "Agree" },
-            { value: 5, text: "Strongly Agree" },
+            { value: 5, text: "Strongly Agree" }
           ]}
           value={option}
-          onClick={(response) => setOption(response)}
+          onClick={response => setOption(response)}
         />
         {arrows}
       </div>
-      <Footer level={8} />
+      <Footer level={7} />
     </div>
   );
 }

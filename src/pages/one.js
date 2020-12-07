@@ -7,10 +7,10 @@ import RightArrow from "../components/RightArrow";
 import LeftArrow from "../components/LeftArrow";
 import Footer from "../components/Footer";
 
-function storeInputInContext(input) {
+function storeInputInContext(input1, input2) {
   const context = useContext(Context);
-  context.one = input;
-  context.two = input;
+  context.one = input1;
+  context.two = input2;
 }
 
 export default function OneAndTwo() {
@@ -21,11 +21,8 @@ export default function OneAndTwo() {
     arrows = (
       <>
         <Link
-          href="three"
-          onClick={() => {
-            storeInputInContext(option1);
-            storeInputInContext(option2);
-          }}
+          href="two"
+          onClick={storeInputInContext(option1, option2)}
         >
           <a>
             <RightArrow></RightArrow>
@@ -33,10 +30,7 @@ export default function OneAndTwo() {
         </Link>
         <Link
           href="/"
-          onClick={() => {
-            storeInputInContext(option1);
-            storeInputInContext(option2);
-          }}
+          onClick={storeInputInContext(option1, option2)}
         >
           <a>
             <LeftArrow></LeftArrow>
@@ -48,10 +42,7 @@ export default function OneAndTwo() {
     arrows = (
       <Link
         href="/"
-        onClick={() => {
-          storeInputInContext(option1);
-          storeInputInContext(option2);
-        }}
+        onClick={storeInputInContext(option1, option2)}
       >
         <a>
           <LeftArrow></LeftArrow>
@@ -90,7 +81,7 @@ export default function OneAndTwo() {
         />
         {arrows}
       </div>
-      <Footer level={2} />
+      <Footer level={1} />
     </div>
   );
 }

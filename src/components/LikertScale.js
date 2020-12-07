@@ -26,7 +26,6 @@ class LikertScale extends React.Component {
 						id={uniqueKey}
 						className={styles.visuallyHidden}
 						onClick={() => {
-							console.log(idx);
 							this.props.onClick(idx);
 						}}
 					/>

@@ -7,13 +7,13 @@ import RightArrow from "../components/RightArrow";
 import LeftArrow from "../components/LeftArrow";
 import Footer from "../components/Footer";
 
-function storeInputInContext(input) {
+function storeInputInContext(input1, input2) {
   const context = useContext(Context);
-  context.nine = input;
-  context.ten = input;
+  context.three = input1;
+  context.four = input2;
 }
 
-export default function NineAndTen() {
+export default function ThreeAndFour() {
   const [option1, setOption1] = useState(-1);
   const [option2, setOption2] = useState(-1);
   let arrows;
@@ -21,22 +21,16 @@ export default function NineAndTen() {
     arrows = (
       <>
         <Link
-          href="eleven"
-          onClick={() => {
-            storeInputInContext(option1);
-            storeInputInContext(option2);
-          }}
+          href="three"
+          onClick={storeInputInContext(option1, option2)}
         >
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
         <Link
-          href="seven"
-          onClick={() => {
-            storeInputInContext(option1);
-            storeInputInContext(option2);
-          }}
+          href="one"
+          onClick={storeInputInContext(option1, option2)}
         >
           <a>
             <LeftArrow></LeftArrow>
@@ -47,11 +41,8 @@ export default function NineAndTen() {
   } else {
     arrows = (
       <Link
-        href="seven"
-        onClick={() => {
-          storeInputInContext(option1);
-          storeInputInContext(option2);
-        }}
+        href="one"
+        onClick={storeInputInContext(option1, option2)}
       >
         <a>
           <LeftArrow></LeftArrow>
@@ -64,22 +55,20 @@ export default function NineAndTen() {
     <div className={styles.centerAlign}>
       <div>
         <LikertScale
-          question="When I viewed my Google Ad Settings, I was surprised by the results."
+          question="I trust Google to keep my personal data safe."
           responses={[
             { value: 1, text: "Strongly Disagree" },
             { value: 2, text: "Disagree" },
             { value: 3, text: "Neutral" },
             { value: 4, text: "Agree" },
             { value: 5, text: "Strongly Agree" },
-            { value: 6, text: "None Shown" },
           ]}
           value={option1}
           onClick={(response) => setOption1(response)}
         />
         <div className={styles.spacer}></div>
-
         <LikertScale
-          question="I believe Google collects data about me from non-Google websites."
+          question="I feel Google is collecting too much information about people online."
           responses={[
             { value: 1, text: "Strongly Disagree" },
             { value: 2, text: "Disagree" },
@@ -92,7 +81,7 @@ export default function NineAndTen() {
         />
         {arrows}
       </div>
-      <Footer level={10} />
+      <Footer level={2} />
     </div>
   );
 }
