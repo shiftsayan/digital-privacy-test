@@ -1,5 +1,4 @@
 @import "styles/vars_module.scss";
-
 .landingContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,11 +11,20 @@
 
   .left {
     grid-template: 1;
+    width: 100%;
   }
 
   .right {
     grid-template: 2;
+    width: 100%;
   }
+}
+
+.statsPage {
+  grid-gap: 80px;
+  padding-top: 150px;
+  max-width: 90%;
+  align-items: start;
 }
 
 .spacer {

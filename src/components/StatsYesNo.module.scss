@@ -1,0 +1,59 @@
+@import "../../styles/vars_module.scss";
+
+.overallContainer {
+  width: 100%;
+  cursor: auto;
+
+  p {
+    display: inline;
+  }
+}
+
+.YesNoContainer {
+  padding: 30px 0;
+  cursor: auto;
+  pointer-events: none;
+
+  input {
+    padding: $button-padding;
+    margin: 0;
+    background: white;
+    color: $primary-color;
+    cursor: pointer;
+    border: 1px solid $primary-color;
+    font-size: 16px;
+  }
+
+  input:hover {
+    //   background: $primary-color;
+    //   color: white;
+    cursor: auto;
+  }
+
+  input:first-child {
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+  }
+
+  input:last-child {
+    border-radius: 0px 8px 8px 0px;
+  }
+
+  .active {
+    background: $primary-color;
+    color: white;
+  }
+}
+
+.title {
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+.YesNoContainer:focus {
+  outline: none;
+}
+
+.average {
+  color: $primary-color;
+}
