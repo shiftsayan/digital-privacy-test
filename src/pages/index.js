@@ -13,6 +13,13 @@ export default function Home() {
         <Link href="zero">
           <button>Take the Test</button>
         </Link>
+        <br />
+        <br />
+        <p className={styles.caption}>
+          This is a Carnegie Mellon University student project conducting
+          Human-Computer Interaction research. Please contact
+          charleyz@andrew.cmu.edu if there are any concerns.
+        </p>
       </div>
       <div className={styles.right}>
         <img src="/landing-image.png"></img>

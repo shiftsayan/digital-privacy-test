@@ -20,18 +20,12 @@ export default function OneAndTwo() {
   if (option1 != -1 && option2 != -1) {
     arrows = (
       <>
-        <Link
-          href="two"
-          onClick={storeInputInContext(option1, option2)}
-        >
+        <Link href="two" onClick={storeInputInContext(option1, option2)}>
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link
-          href="/zero"
-          onClick={storeInputInContext(option1, option2)}
-        >
+        <Link href="/zero" onClick={storeInputInContext(option1, option2)}>
           <a>
             <LeftArrow></LeftArrow>
           </a>
@@ -40,10 +34,7 @@ export default function OneAndTwo() {
     );
   } else {
     arrows = (
-      <Link
-        href="/zero"
-        onClick={storeInputInContext(option1, option2)}
-      >
+      <Link href="/zero" onClick={storeInputInContext(option1, option2)}>
         <a>
           <LeftArrow></LeftArrow>
         </a>

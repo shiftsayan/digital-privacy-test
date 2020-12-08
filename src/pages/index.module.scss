@@ -1,8 +1,8 @@
 @import "styles/vars_module.scss";
 .landingContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 1100px;
+  grid-template-columns: 4fr 6fr;
+  max-width: 1300px;
   margin: 0 auto;
   justify-items: center;
   align-items: center;
@@ -17,6 +17,17 @@
   .right {
     grid-template: 2;
     width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .caption {
+    // font-style: italic;
+    opacity: 0.5;
+    width: 80%;
+    font-size: 14px;
   }
 }
 
@@ -25,6 +36,7 @@
   padding-top: 150px;
   max-width: 90%;
   align-items: start;
+  grid-template-columns: 1fr 1fr;
 }
 
 .spacer {
