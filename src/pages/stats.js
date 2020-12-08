@@ -11,7 +11,7 @@ export default function Stats() {
     'right_tag': 'Strongly Agree',
     'context_id': 22, // TODO
     'your_label': 'You',
-    'mean': 78,
+    'mean': 100,
     'mean_label': 'Average',
   }
   var question2 = {

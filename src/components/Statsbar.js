@@ -9,7 +9,7 @@ export default function Statsbar(props) {
 
       <div className={styles.outerBar}>
         <span className={styles.average}>{props.mean_label}</span>
-        <span className={styles.innerBar}>
+        <span className={styles.innerBar} style={{width: `${props.mean}%`}}>
           <span className={styles.user}>{props.your_label}</span>
         </span>
         <p className={styles.leftTag}>{props.left_tag}</p>
