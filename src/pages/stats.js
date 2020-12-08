@@ -27,6 +27,7 @@ export default function Stats() {
     'questions': [
       question1,
       question2,
+      question2,
     ]
   }
 
