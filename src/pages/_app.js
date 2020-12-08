@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/globals.scss";
 import Page from "../components/Page";
 import React from "react";
@@ -9,10 +9,10 @@ export default function App({ Component, pageProps, router }) {
   return (
     <Page>
       <Provider>
-        <PageTransition timeout={100} classNames="page-transition">
-          <Component {...pageProps} key={router.route} />
-        </PageTransition>
-        <style jsx global>{`
+        {/* <PageTransition timeout={100} classNames="page-transition"> */}
+        <Component {...pageProps} key={router.route} />
+        {/* </PageTransition> */}
+        {/* <style jsx global>{`
           .page-transition-enter {
             opacity: 0;
           }
@@ -27,7 +27,7 @@ export default function App({ Component, pageProps, router }) {
             opacity: 0;
             transition: opacity 300ms;
           }
-        `}</style>
+        `}</style> */}
       </Provider>
     </Page>
   );
