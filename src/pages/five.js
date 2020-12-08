@@ -31,10 +31,7 @@ export default function SevenAndEight() {
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link
-          href="four"
-          onClick={storeInputInContext(yesno, option)}
-        >
+        <Link href="four" onClick={storeInputInContext(yesno, option)}>
           <a>
             <LeftArrow></LeftArrow>
           </a>
@@ -43,10 +40,7 @@ export default function SevenAndEight() {
     );
   } else {
     arrows = (
-      <Link
-        href="four"
-        onClick={storeInputInContext(yesno, option)}
-      >
+      <Link href="four" onClick={storeInputInContext(yesno, option)}>
         <a>
           <LeftArrow></LeftArrow>
         </a>

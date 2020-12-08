@@ -19,18 +19,12 @@ export default function ElevenAndTwelve() {
   if (input.length > 0) {
     arrows = (
       <>
-        <Link
-          href="thanks"
-          onClick={storeInputInContext(input)}
-        >
+        <Link href="thanks" onClick={storeInputInContext(input)}>
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link
-          href="eight"
-          onClick={storeInputInContext(input)}
-        >
+        <Link href="eight" onClick={storeInputInContext(input)}>
           <a>
             <LeftArrow></LeftArrow>
           </a>
@@ -39,10 +33,7 @@ export default function ElevenAndTwelve() {
     );
   } else {
     arrows = (
-      <Link
-        href="eight"
-        onClick={storeInputInContext(input)}
-      >
+      <Link href="eight" onClick={storeInputInContext(input)}>
         <a>
           <LeftArrow></LeftArrow>
         </a>
@@ -60,7 +51,7 @@ export default function ElevenAndTwelve() {
         />
         {arrows}
       </div>
-      <Footer level={9} />
+      <Footer level={8} />
     </div>
   );
 }

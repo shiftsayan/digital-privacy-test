@@ -21,18 +21,12 @@ export default function ElevenAndTwelve() {
   if (input.match(/^[1-9]$|^[1-9][0-9]$|^(100)$|^(0)$/) && option != -1) {
     arrows = (
       <>
-        <Link
-          href="nine"
-          onClick={storeInputInContext(input, option)}
-        >
+        <Link href="stats" onClick={storeInputInContext(input, option)}>
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link
-          href="seven"
-          onClick={storeInputInContext(input, option)}
-        >
+        <Link href="six" onClick={storeInputInContext(input, option)}>
           <a>
             <LeftArrow></LeftArrow>
           </a>
@@ -41,10 +35,7 @@ export default function ElevenAndTwelve() {
     );
   } else {
     arrows = (
-      <Link
-        href="seven"
-        onClick={storeInputInContext(input, option)}
-      >
+      <Link href="six" onClick={storeInputInContext(input, option)}>
         <a>
           <LeftArrow></LeftArrow>
         </a>
@@ -76,7 +67,7 @@ export default function ElevenAndTwelve() {
         />
         {arrows}
       </div>
-      <Footer level={8} />
+      <Footer level={7} />
     </div>
   );
 }

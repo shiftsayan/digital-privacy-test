@@ -20,18 +20,12 @@ export default function NineAndTen() {
   if (option1 != -1 && option2 != -1) {
     arrows = (
       <>
-        <Link
-          href="seven"
-          onClick={storeInputInContext(option1, option2)}
-        >
+        <Link href="eight" onClick={storeInputInContext(option1, option2)}>
           <a>
             <RightArrow></RightArrow>
           </a>
         </Link>
-        <Link
-          href="six"
-          onClick={storeInputInContext(option1, option2)}
-        >
+        <Link href="five" onClick={storeInputInContext(option1, option2)}>
           <a>
             <LeftArrow></LeftArrow>
           </a>
@@ -40,10 +34,7 @@ export default function NineAndTen() {
     );
   } else {
     arrows = (
-      <Link
-        href="six"
-        onClick={storeInputInContext(option1, option2)}
-      >
+      <Link href="five" onClick={storeInputInContext(option1, option2)}>
         <a>
           <LeftArrow></LeftArrow>
         </a>

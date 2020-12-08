@@ -39,6 +39,19 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.textInputStats {
+  border: 1px solid $primary-color;
+  border-radius: $border-radius;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.otherUsers {
+  opacity: 0.4;
+}
+
 .spacer {
   height: 50px;
 }

@@ -5,7 +5,11 @@ import styles from "./Footer.module.scss";
 export default function Footer(props) {
   return (
     <footer className={styles.footer}>
-      <ProgressBar animated="true" striped now={((props.level + 1) / 11) * 100} />
+      <ProgressBar
+        animated="true"
+        striped
+        now={((props.level + 1) / 9) * 100}
+      />
     </footer>
   );
 }

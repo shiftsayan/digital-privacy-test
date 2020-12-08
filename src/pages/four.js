@@ -11,7 +11,7 @@ export default function Six() {
     <div className={styles.centerAlign}>
       <div className={styles.textInputContainer}>
         <h2 className={styles.title}>
-          If you didn’t already know, Google personalizes ads.
+          If you didn’t know, Google does personalize ads.
         </h2>
         <p>
           Click the image to view your Google Ad Settings, and take a few

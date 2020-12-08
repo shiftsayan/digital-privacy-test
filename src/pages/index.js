@@ -6,6 +6,7 @@ export default function Home() {
   return (
     <div className={styles.landingContainer}>
       <div className={styles.left}>
+        <div className={styles.spacer}></div>
         <h1>Digital Privacy Test</h1>
         <h5 className={styles.secondary}>
           A five minute survey about your relationship with the web.
