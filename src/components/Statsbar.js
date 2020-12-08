@@ -2,18 +2,18 @@ import React from "react";
 import styles from "./Statsbar.module.scss";
 
 export default function Statsbar(props) {
+  // can use {props.your} and {props.mean} to get those values
   return (
-    // <div>
     <div className={styles.barContainer}>
-      <h5>I am careful with how I share my information online.</h5>
+      <h5>{props.prompt}</h5>
 
       <div className={styles.outerBar}>
-        <span className={styles.average}>average</span>
+        <span className={styles.average}>{props.mean_label}</span>
         <span className={styles.innerBar}>
-          <span className={styles.user}>hello</span>
+          <span className={styles.user}>{props.your_label}</span>
         </span>
-        <p className={styles.leftTag}>Strongly Disagree</p>
-        <p className={styles.rightTag}>Strongly Agree</p>
+        <p className={styles.leftTag}>{props.left_tag}</p>
+        <p className={styles.rightTag}>{props.right_tag}</p>
       </div>
     </div>
   );

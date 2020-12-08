@@ -1,15 +1,40 @@
 import styles from "./index.module.scss";
-import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Statsbar from "../components/Statsbar";
 import StatsYesNo from "../components/StatsYesNo";
 
 export default function Stats() {
+  var question1 = {
+    'type': 'likert',
+    'prompt': 'I am careful with how I share my information online.',
+    'left_tag': 'Strongly Disagree',
+    'right_tag': 'Strongly Agree',
+    'context_id': 22, // TODO
+    'your_label': 'You',
+    'mean': 78,
+    'mean_label': 'Average',
+  }
+  var question2 = {
+    'type': 'yesno',
+    'prompt': 'I am aware that Google personalizes ads based on data collected about my Google account.',
+    'context_id': 'yes', // TODO
+    'majority': 'yes',
+    'percent': 12,
+  }
+
+  var data = {
+    'total': 754,
+    'questions': [
+      question1,
+      question2,
+    ]
+  }
+
   return (
     <div className={`${styles.landingContainer} ${styles.statsPage}`}>
       <div className={styles.left}>
         <h2>
-          Here are your answers and how they compare to other 754 individuals
+          Here are your answers and how they compare to other {data.total} individuals
           who took the survey.
         </h2>
         <div className={styles.spacer}></div>
@@ -44,14 +69,30 @@ export default function Stats() {
       </div>
 
       <div className={styles.right}>
-        <Statsbar></Statsbar>
-
-        <StatsYesNo
-          question="I am aware that Google personalizes ads based on
-data collected about my Google account."
-          average="85%"
-          user="no"
-        ></StatsYesNo>
+        {
+          data.questions.map( (question, i) =>
+            { return question.type == 'likert' ?
+              <Statsbar
+                prompt={question.prompt}
+                your={question.context_id} // TODO: get value from this
+                your_label={question.your_label} 
+                mean={question.mean}
+                mean_label={question.mean_label}
+                left_tag={question.left_tag}
+                right_tag={question.right_tag}
+                key={i}
+              />
+              :
+              <StatsYesNo
+                question={question.prompt}
+                majority={question.majority}
+                percent={question.percent}
+                your={question.context_id} // TODO: get value from this
+                key={i}
+              />
+            }
+          )
+        }
       </div>
     </div>
   );
