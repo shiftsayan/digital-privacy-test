@@ -31,18 +31,37 @@
   }
 }
 
+.arrowDown {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  left: 38%;
+}
+.arrowBlue {
+  border-top: 5px solid $primary-color;
+}
+
+.arrowBlack {
+  border-top: 5px solid #111111;
+}
+
 .average {
   position: absolute;
   top: -40px;
   left: 100%;
   -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
   color: $primary-color;
+  background: white;
 }
 
 .user {
   position: absolute;
   top: -40px;
   // left: 20%;
+  background: white;
 }
 
 .user,
