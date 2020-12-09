@@ -8,9 +8,9 @@ export default function Statsbar(props) {
       <h5>{props.prompt}</h5>
 
       <div className={styles.outerBar}>
-        <span className={styles.average}>{props.mean_label}</span>
+        <span className={styles.user} style={{left: `${props.your}%`}}>{props.your_label}</span>
         <span className={styles.innerBar} style={{width: `${props.mean}%`}}>
-          <span className={styles.user}>{props.your_label}</span>
+          <span className={styles.average}>{props.mean_label}</span>
         </span>
         <p className={styles.leftTag}>{props.left_tag}</p>
         <p className={styles.rightTag}>{props.right_tag}</p>

@@ -16,7 +16,6 @@ function storeInputInContext(input) {
 
 export default function Stats() {
   const [input, setInput] = useState("");
-  let arrows;
 
   var question1 = {
     type: "likert",
@@ -25,7 +24,7 @@ export default function Stats() {
     right_tag: "Strongly Agree",
     context_id: 22, // TODO
     your_label: "You",
-    mean: 100,
+    mean: 73,
     mean_label: "Average",
   };
   var question2 = {

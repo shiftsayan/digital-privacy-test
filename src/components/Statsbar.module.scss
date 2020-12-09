@@ -26,7 +26,6 @@
     border-radius: 2px 0px 0px 2px;
     background: $primary-color;
     // position: absolute;
-    // width: 80%;
     position: relative;
     margin-bottom: 20px;
   }
@@ -35,14 +34,15 @@
 .average {
   position: absolute;
   top: -40px;
-  left: 40%;
+  left: 100%;
+  -webkit-transform: translate(-50%, 0);
   color: $primary-color;
 }
 
 .user {
   position: absolute;
   top: -40px;
-  left: 20%;
+  // left: 20%;
 }
 
 .user,
