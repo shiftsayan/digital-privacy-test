@@ -20,7 +20,7 @@ export default function NineAndTen() {
   if (option1 != -1 && option2 != -1) {
     arrows = (
       <>
-        <Link href="eight" onClick={storeInputInContext(option1, option2)}>
+        <Link href="seven" onClick={storeInputInContext(option1, option2)}>
           <a>
             <RightArrow></RightArrow>
           </a>

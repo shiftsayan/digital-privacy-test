@@ -9,62 +9,59 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
-function storeInputInContext(input) {
-  const context = useContext(Context);
-  context.thirteen = input;
+function getResponseFromContext(context, id) {
+  if (id == 'eleven') {
+    return context[id];
+  }
+  return context[id] < 5 ? context[id] / 5 * 100 : null
 }
 
 export default function Stats() {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState({});
   const [input, setInput] = useState("");
 
-  var question1 = {
-    type: "likert",
-    prompt: "I am careful with how I share my information online.",
-    left_tag: "Strongly Disagree",
-    right_tag: "Strongly Agree",
-    context_id: 22, // TODO
-    your_label: "You",
-    mean: 73,
-    mean_label: "Average",
-  };
-  var question2 = {
-    type: "yesno",
-    prompt:
-      "I am aware that Google personalizes ads based on data collected about my Google account.",
-    context_id: "yes", // TODO
-    majority: "yes",
-    percent: 12,
-  };
+  const context = useContext(Context);
+  if (false && context != {} && !context.sent) {
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbwgbEDUMMVmj2q1ZbJqs6s-w0YNESXtDoZ8lSDX321F6lUnCZzf/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(context),
+      }
+    )
+      .then((response) => response.text())
+      .then((data) => console.log(data));
+    context.sent = true;
+  }
 
-  var data = {
-    total: 754,
-    questions: [question1, question2, question2],
-  };
+  fetch(
+    "https://script.google.com/macros/s/AKfycbwgbEDUMMVmj2q1ZbJqs6s-w0YNESXtDoZ8lSDX321F6lUnCZzf/exec",
+    {
+      method: "GET",
+    }
+  )
+  .then((response) => response.text())
+  .then((text) => JSON.parse(text))
+  .then((data) => {setData(data); setLoading(false)})
 
   return (
     <div className={`${styles.landingContainer} ${styles.statsPage}`}>
       <div className={styles.left}>
         <h2>
-          Here are your answers and how they compare to the {data.total} other
-          individuals who took the survey.
+          Thanks for taking part in the survey. Here is how your answers compare to the {loading ? '' : data['total']} other individuals who took the survey.
         </h2>
         <div className={styles.spacer}></div>
         <h5>
-          What is your current perception of technology companies and their
-          commitment to privacy of user data?
+          Your initial perception of technology companies and their commitment to privacy of user data.
         </h5>
         <br></br>
         <p>
-          One advanced diverted domestic sex repeated bringing you old. Possible
-          procured her trifling laughter thoughts property she met way.
-          Companions shy had solicitude favourable own. Which could saw guest
-          man now heard but. Lasted my coming uneasy marked so should. Gravity
-          letters it amongst herself dearest an windows by. Wooded ladies she
-          basket season age her uneasy saw.
+          {context['zero']}
         </p>
+        {/* <br></br>
         <br></br>
-        <br></br>
-        <div className={styles.otherUsers}>
+        {/* <div className={styles.otherUsers}>
           <h6>Other User Responses</h6>
           <p>
             One advanced diverted domestic sex repeated bringing you old.
@@ -74,7 +71,7 @@ export default function Stats() {
             Gravity letters it amongst herself dearest an windows by. Wooded
             ladies she basket season age her uneasy saw.
           </p>
-        </div>
+        </div> */}
 
         <br></br>
         <br></br>
@@ -87,9 +84,20 @@ export default function Stats() {
 
         {/* <input className={styles.textInputStats} type={"text"} /> */}
         <InputGroup className="mb-3">
-          <FormControl aria-describedby="basic-addon2" />
+          <FormControl aria-describedby="basic-addon2" value={input} onInput={(e) => setInput(e.target.value)}/>
           <InputGroup.Append>
-            <Button variant="outline-secondary">Submit</Button>
+            <Button 
+              variant="outline-secondary"
+              onClick={() => {fetch(
+                  "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbwgbEDUMMVmj2q1ZbJqs6s-w0YNESXtDoZ8lSDX321F6lUnCZzf/exec",
+                  {
+                    method: "POST",
+                    body: JSON.stringify({'thirteen': input}),
+                  }
+              ); setInput('');}}
+            >
+              Submit
+            </Button>
           </InputGroup.Append>
         </InputGroup>
 
@@ -109,12 +117,12 @@ export default function Stats() {
         <div className={styles.spacer}></div>
       </div>
 
-      <div className={styles.right}>
+      { !loading && <div className={styles.right}>
         {data.questions.map((question, i) => {
           return question.type == "likert" ? (
             <Statsbar
               prompt={question.prompt}
-              your={question.context_id} // TODO: get value from this
+              your={getResponseFromContext(context, question.context_id)}
               your_label={question.your_label}
               mean={question.mean}
               mean_label={question.mean_label}
@@ -122,17 +130,17 @@ export default function Stats() {
               right_tag={question.right_tag}
               key={i}
             />
-          ) : (
+          ) : question.type == "yesno" ? (
             <StatsYesNo
               question={question.prompt}
               majority={question.majority}
               percent={question.percent}
-              your={question.context_id} // TODO: get value from this
+              your={context[question.context_id] == 1 ? 'yes' : 'no'}
               key={i}
             />
-          );
+          ) : null;
         })}
-      </div>
+      </div>}
     </div>
   );
 }
