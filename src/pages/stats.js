@@ -22,7 +22,7 @@ export default function Stats() {
   const [input, setInput] = useState("");
 
   const context = useContext(Context);
-  if (false && context != {} && !context.sent) {
+  if (context != {} && !context.sent) {
     fetch(
       "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbwgbEDUMMVmj2q1ZbJqs6s-w0YNESXtDoZ8lSDX321F6lUnCZzf/exec",
       {
@@ -52,13 +52,19 @@ export default function Stats() {
           Thanks for taking part in the survey. Here is how your answers compare to the {loading ? '' : data['total']} other individuals who took the survey.
         </h2>
         <div className={styles.spacer}></div>
-        <h5>
-          Your initial perception of technology companies and their commitment to privacy of user data.
-        </h5>
+        {
+          context['zero'] && <><h5>
+            Your initial perception of technology companies and their commitment to privacy of user data.
+          </h5>
+          <br></br>
+          <p>
+            {context['zero']}
+          </p>
+          <br></br>
         <br></br>
-        <p>
-          {context['zero']}
-        </p>
+          </>
+        }
+
         {/* <br></br>
         <br></br>
         {/* <div className={styles.otherUsers}>
@@ -73,8 +79,6 @@ export default function Stats() {
           </p>
         </div> */}
 
-        <br></br>
-        <br></br>
         <div className={styles.otherUsers}></div>
         <h5>
           Did your perception of technology companies and their commitment to
@@ -88,13 +92,13 @@ export default function Stats() {
           <InputGroup.Append>
             <Button 
               variant="outline-secondary"
-              onClick={() => {fetch(
+              onClick={() => {if (input != '') { fetch(
                   "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbwgbEDUMMVmj2q1ZbJqs6s-w0YNESXtDoZ8lSDX321F6lUnCZzf/exec",
                   {
                     method: "POST",
                     body: JSON.stringify({'thirteen': input}),
                   }
-              ); setInput('');}}
+              )}; setInput('');}}
             >
               Submit
             </Button>
